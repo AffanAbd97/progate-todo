@@ -1,8 +1,13 @@
+import TodosItem from "./TodosItem";
 
-function Todos() {
+function Todos({ todosData }) {
   return (
-    <div>Todos</div>
-  )
+    <>
+      {todosData.map((item) => (
+        <TodosItem key={item.id} status={item.completed} title={item.title} />
+      ))}
+    </>
+  );
 }
 
-export default Todos
+export default Todos;

@@ -1,9 +1,10 @@
-
-
-function TodosItem() {
+function TodosItem({ status, title }) {
   return (
-    <div>TodosItem</div>
-  )
+    <ul>
+      <li>{title}</li>
+      <li>{status ? "completed" : "uncomplete"}</li>
+    </ul>
+  );
 }
 
-export default TodosItem
+export default TodosItem;
