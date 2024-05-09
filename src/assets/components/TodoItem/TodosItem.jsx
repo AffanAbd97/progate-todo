@@ -5,6 +5,10 @@ function TodosItem({ id, status, title, onDelete, onComplete }) {
   const handleCheck = () => {
     onComplete(id);
   };
+
+  const handleDelete = () => {
+    onDelete(id);
+  };
   return (
     <li className={`${styles.listItem}  `}>
       <div>
@@ -20,7 +24,7 @@ function TodosItem({ id, status, title, onDelete, onComplete }) {
           >
             {status ? "completed" : "Running"}
           </p>
-          <DeleteButton />
+          <DeleteButton onClick={handleDelete} />
         </div>
       </div>
     </li>
