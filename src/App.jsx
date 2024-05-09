@@ -21,17 +21,20 @@ function App() {
   ]);
 
   const handleComplete = (id) => {
-    console.log(id);
     const newTodos = todos.map((item) =>
       item.id === id ? { ...item, completed: !item.completed } : item
     );
     setTodos(newTodos);
   };
 
+  const handleDelete = (id) => {
+    const newTodos = todos.filter((item) => item.id !== id);
+    setTodos(newTodos);
+  };
   return (
     <div className="container">
       <h1 className="header">My Todo List</h1>
-      <Todos todosData={todos} onComplete={handleComplete} />
+      <Todos todosData={todos} onComplete={handleComplete} onDelete={handleDelete}/>
     </div>
   );
 }
