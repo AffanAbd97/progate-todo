@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Todos from "./assets/components/Todos";
-
+import "./App.css";
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -20,11 +20,18 @@ function App() {
     },
   ]);
 
-  console.log(todos);
+  const handleComplete = (id) => {
+    console.log(id);
+    const newTodos = todos.map((item) =>
+      item.id === id ? { ...item, completed: !item.completed } : item
+    );
+    setTodos(newTodos);
+  };
 
   return (
-    <div>
-      <Todos todosData={todos} />
+    <div className="container">
+      <h1 className="header">My Todo List</h1>
+      <Todos todosData={todos} onComplete={handleComplete} />
     </div>
   );
 }
