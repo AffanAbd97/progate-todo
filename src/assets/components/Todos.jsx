@@ -17,7 +17,7 @@ function Todos({ todosData, onComplete, onDelete }) {
         ))
       ) : (
         <li className={`${styles.listItem}  `}>
-          <p className={styles.itemTitle}>Tidak ada Data Kosong</p>
+          <p className={styles.itemTitle}>Tidak ada Data </p>
         </li>
       )}
     </ul>
