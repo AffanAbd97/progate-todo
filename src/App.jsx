@@ -32,10 +32,24 @@ function App() {
     const newTodos = todos.filter((item) => item.id !== id);
     setTodos(newTodos);
   };
+
+  const handleAdd = (text) => {
+    const newId = todos.length>0?todos[todos.length - 1].id + 1:1;
+    setTodos((prev) => [
+       ...prev ,
+      {
+        id: newId,
+        title: text,
+        completed: false,
+      },
+    ]);
+  };
+
+  console.log(todos);
   return (
     <div className="container">
       <h1 className="header">My Todo List</h1>
-      <TodoForm />
+      <TodoForm onSubmit={handleAdd} />
       <Todos
         todosData={todos}
         onComplete={handleComplete}

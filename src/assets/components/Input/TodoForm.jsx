@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styles from "./input.module.css";
-function TodoForm() {
-  const [value, setValue] = useState("second");
+function TodoForm({ onSubmit }) {
+  const [value, setValue] = useState("");
 
   const handleValueChange = (e) => {
     setValue(e.target.value);
   };
 
   const handleSubmit = () => {
+    onSubmit(value);
     setValue("");
   };
 

@@ -4,10 +4,17 @@
   border-radius: 25px;
   padding: 0;
   margin: 0;
+  max-height: 600px;
+ height: 600px;
+  overflow: scroll;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 
 .listItem {
   padding: 1rem;
+ border-bottom: 1px solid lightgray;
+
 }
 
 .listItem div {
