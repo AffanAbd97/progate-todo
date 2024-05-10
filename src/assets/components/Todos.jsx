@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import TodosItem from "./TodoItem/TodosItem";
 import styles from "./todos.module.css";
+import { AppContext } from "../../context/AppContext";
 
-function Todos({ todosData, onComplete, onDelete }) {
+function Todos({ todosData }) {
+
+  const {handleComplete,handleDelete} = useContext(AppContext)
   return (
     <ul className={`${styles.list}`}>
       {todosData.length > 0 ? (
@@ -10,8 +14,8 @@ function Todos({ todosData, onComplete, onDelete }) {
             key={item.id}
             status={item.completed}
             title={item.title}
-            onComplete={onComplete}
-            onDelete={onDelete}
+            onComplete={handleComplete}
+            onDelete={handleDelete}
             id={item.id}
           />
         ))
