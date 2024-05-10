@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Todos from "./assets/components/Todos";
 import "./App.css";
+import TodoForm from "./assets/components/Input/TodoForm";
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -34,7 +35,12 @@ function App() {
   return (
     <div className="container">
       <h1 className="header">My Todo List</h1>
-      <Todos todosData={todos} onComplete={handleComplete} onDelete={handleDelete}/>
+      <TodoForm />
+      <Todos
+        todosData={todos}
+        onComplete={handleComplete}
+        onDelete={handleDelete}
+      />
     </div>
   );
 }
