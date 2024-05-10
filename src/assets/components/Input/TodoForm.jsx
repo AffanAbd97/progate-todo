@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./input.module.css";
-function TodoForm({ onSubmit }) {
+import { AppContext } from "../../../context/AppContext";
+function TodoForm() {
   const [value, setValue] = useState("");
-
+  const { handleAdd } = useContext(AppContext);
   const handleValueChange = (e) => {
     setValue(e.target.value);
   };
 
   const handleSubmit = () => {
-    onSubmit(value);
+    handleAdd(value);
     setValue("");
   };
 

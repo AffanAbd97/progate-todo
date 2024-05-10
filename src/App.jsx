@@ -2,6 +2,7 @@ import { useState } from "react";
 import Todos from "./assets/components/Todos";
 import "./App.css";
 import TodoForm from "./assets/components/Input/TodoForm";
+import { AppContext } from "./context/AppContext";
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -34,9 +35,9 @@ function App() {
   };
 
   const handleAdd = (text) => {
-    const newId = todos.length>0?todos[todos.length - 1].id + 1:1;
+    const newId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
     setTodos((prev) => [
-       ...prev ,
+      ...prev,
       {
         id: newId,
         title: text,
@@ -45,17 +46,17 @@ function App() {
     ]);
   };
 
-  console.log(todos);
   return (
-    <div className="container">
-      <h1 className="header">My Todo List</h1>
-      <TodoForm onSubmit={handleAdd} />
-      <Todos
-        todosData={todos}
-        onComplete={handleComplete}
-        onDelete={handleDelete}
-      />
-    </div>
+    <AppContext.Provider value={{handleComplete,handleDelete,handleAdd}}>
+      <div className="container">
+        <h1 className="header">My Todo List</h1>
+        <TodoForm  />
+        <Todos
+          todosData={todos}
+         
+        />
+      </div>
+    </AppContext.Provider>
   );
 }
 
